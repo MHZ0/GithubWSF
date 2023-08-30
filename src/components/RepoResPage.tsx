@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Repo from "./SearchBWF/Repo";
 import { useLocation } from "react-router-dom";
-import octokit  from "../Githubclient/GithubC";
+import octokit from "../Githubclient/GithubC";
 
 export type RepoData = {
   //DEFINING THE TYPE FOR THE REPO DATA
@@ -53,8 +53,8 @@ const RepoResPage = () => {
     return result.data;
   };
 
-  const { data: authUData, isLoading: ul, isError: ue } = useQuery(["authUData"], fetchAuthUser);//USING THE REACT QUERY TO FETCH AUTHENTICATED USER 
-  console.log("Authenticated User",authUData?.login.toLocaleLowerCase());//GETTING THE AUTHENTICATED USER
+  const { data: authUData} = useQuery(["authUData"], fetchAuthUser);  //USING THE REACT QUERY TO FETCH AUTHENTICATED USER 
+  console.log("Authenticated User",authUData?.login.toLocaleLowerCase());   //GETTING THE AUTHENTICATED USER
 
   const fetchoctRepos = async () => {
     //TO GET THE AUTHENTICATED USER REPO DATA
@@ -63,16 +63,16 @@ const RepoResPage = () => {
     return result.data;
   };
 
-  const { data: octRepoData, isLoading: rl, isError: re } = useQuery(["octrepoData"], fetchoctRepos);//USING THE REACT QUERY TO FETCH REPO DATA FROM OCTOKIT
+  const { data: octRepoData } = useQuery(["octrepoData"], fetchoctRepos);//USING THE REACT QUERY TO FETCH REPO DATA FROM OCTOKIT
   const showifauth = (user?.toLocaleLowerCase() ) === (authUData?.login.toLocaleLowerCase()); //CHECKING IF THE USER IS AUTHENTICATED 
   console.log("This user Authenticated ? : ",showifauth);
 
   const octRepoNumber = octRepoData?.length;            //GETTING THE AUTHENTICATED USER REPO NUMBER 
   console.log("Auth User Repos number",octRepoNumber);  
 
-  localStorage.setItem("repoNumber", JSON.stringify(repoNumber)); //STORING THE REPO NUMBER IN THE LOCAL STORAGE
-  localStorage.setItem("octRepoNumber", JSON.stringify(octRepoNumber)); //STORING THE AUTHENTICATED USER REPO NUMBER IN THE LOCAL STORAGE
-  localStorage.setItem("showifauth", JSON.stringify(showifauth)); //STORING THE STARRED REPO NUMBER IN THE LOCAL STORAGE
+  //localStorage.setItem("repoNumber", JSON.stringify(repoNumber)); //STORING THE REPO NUMBER IN THE LOCAL STORAGE
+  //localStorage.setItem("octRepoNumber", JSON.stringify(octRepoNumber)); //STORING THE AUTHENTICATED USER REPO NUMBER IN THE LOCAL STORAGE
+  //localStorage.setItem("showifauth", JSON.stringify(showifauth)); //STORING THE STARRED REPO NUMBER IN THE LOCAL STORAGE
 
   return ( 
     <>                    {/*HANDLING DATA LAODING AND ERRORS*/}
@@ -109,7 +109,7 @@ const RepoResPage = () => {
                 <Filterl />
               </div>
             </div>
-            { ( showifauth == false)?(data //MAPPING THE DATA TO THE REPO COMPONENT IF THE USER IS NOT AUTHENTICATED
+            { ( showifauth === false)?(data //MAPPING THE DATA TO THE REPO COMPONENT IF THE USER IS NOT AUTHENTICATED
               .filter((repo: RepoData) => {
                 return repo.name
                   .toLowerCase()

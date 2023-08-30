@@ -6,8 +6,8 @@ const Repositories = () => {           //THIS IS THE COMPONENT THAT IS BEING IMP
   // const showifauth = localStorage.getItem("showifauth"); //GETTING THE AUTHENTICATED USER FROM THE LOCAL STORAGE
 
   // const sif = (showifauth) ? JSON.parse(showifauth.toLowerCase(), (key, value) => {
-  //   if (value == 'true') return true;
-  //   if (value == 'false') return false;
+  //   if (value === 'true') return true;
+  //   if (value === 'false') return false;
   //   return value;
   // }) : undefined ;
 

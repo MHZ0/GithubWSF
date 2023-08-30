@@ -50,31 +50,24 @@ const ProfileSideBar = () => {
 
   const { 
     data: pdata,
-    isLoading, 
-    isError } = useQuery(["profileData"], fetchProfileData); //USING THE REACT QUERY TO FETCH PROFILE DATA
+     } = useQuery(["profileData"], fetchProfileData); //USING THE REACT QUERY TO FETCH PROFILE DATA
 
   const {
     data: orgData,
-    isLoading: orgLoading,
-    isError: orgError,
   } = useQuery(["orgData"], fetchOrganizations); //USING THE REACT QUERY TO FETCH ORGANIZATION DATA
 
   const {
     data: starredData,
-    isLoading: starredLoading,
-    isError: starredError,
   } = useQuery(["starredData"], fetchStarred); //USING THE REACT QUERY TO FETCH STARRED REPOS AND COUNT THEM LATER 
 
   const {
     data: octokitdata,
-    isLoading: l,
-    isError: e,
   } = useQuery(["octdata"], getdata);
 
   const starredDataLength = starredData ? starredData.length : 0;    //GETTING THE LENGTH OF THE STARRED DATA
   console.log("starred Repos number",starredDataLength);
 
-  const showifauth = (user?.toLocaleLowerCase() ) == (octokitdata?.login.toLocaleLowerCase()) ; //CHECKING IF THE USER IS AUTHENTICATED OR NOT
+  const showifauth = (user?.toLocaleLowerCase() ) === (octokitdata?.login.toLocaleLowerCase()) ; //CHECKING IF THE USER IS AUTHENTICATED OR NOT
   console.log("Authenticated ? : ",showifauth);
 
   return (

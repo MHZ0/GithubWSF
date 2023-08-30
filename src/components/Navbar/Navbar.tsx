@@ -1,7 +1,7 @@
 import Overview from "./Overview";
 import Repositories from "./Repositories";
 import Projects from "./Projects";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {Route, Routes } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import RepoResPage from "../RepoResPage";
 
@@ -49,7 +49,7 @@ const Navbar = () => {
       </nav>
 
       <Routes>
-        <Route path="/RepoResPage" Component={RepoResPage} />{" "}  {/*SETTING THE ROUTE FOR THE REPO PAGE */}
+        <Route path="/RepoResPage" Component={RepoResPage} />  {/*SETTING THE ROUTE FOR THE REPO PAGE */}
       </Routes>
     </>
   );
