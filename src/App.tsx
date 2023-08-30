@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar/Navbar";
 import {
   QueryClient,
   QueryClientProvider,
-  useQueryClient,
 } from "@tanstack/react-query";
 import ProfileSideBar from "./components/ProfileSideBar";
 import { BrowserRouter, Routes } from "react-router-dom";

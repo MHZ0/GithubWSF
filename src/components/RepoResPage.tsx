@@ -1,11 +1,11 @@
 import SearchBar from "./SearchBWF/SearchBar";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import FilterT from "./SearchBWF/FilterT";
 import Filterl from "./SearchBWF/FilterL";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Repo from "./SearchBWF/Repo";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import octokit  from "../Githubclient/GithubC";
 
 export type RepoData = {
