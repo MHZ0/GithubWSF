@@ -18,7 +18,7 @@ const ProfileSideBar = () => {
     return useMemo(() => new URLSearchParams(search), [search]); //USING THE MEMO HOOK TO STORE THE SEARCH PARAMS
   }
   const params = useQue();
-  const user = params.get("user")  ; //EXTRACTING THE USER PARAMS FOR THE ProfileSideBar COMPONENT
+  const user = params.get("user") || "mhz0"  ; //EXTRACTING THE USER PARAMS FOR THE ProfileSideBar COMPONENT
 
   const fetchProfileData = async () => {
     //FOR THE USAGE OF REACT QUERY TO FETCH THE PROFILE DATA DYNAMICALLY

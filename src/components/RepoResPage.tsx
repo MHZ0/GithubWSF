@@ -30,7 +30,7 @@ const RepoResPage = () => {
   const [searchText, setSearchText] = useState<string>(""); //SETTING THE STATE FOR THE SEARCH TEXT
   const params = useQue();
 
-  const user = params.get("user") ; //EXTRACTING THE USER PARAMS FOR THE ProfileSideBar COMPONENT
+  const user = params.get("user") || "mhz0" ; //EXTRACTING THE USER PARAMS FOR THE ProfileSideBar COMPONENT
   
   console.log("the user is ",user);
 
